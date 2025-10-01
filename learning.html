@@ -633,6 +633,48 @@ function startQuiz(file) {
   window.location.href = file; 
 }
 </script>
+<!-- ✅ Modal แจ้งเตือนต้องล็อกอิน -->
+<div class="modal fade" id="loginRequiredModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4" style="
+      border-radius: 15px;
+      background: linear-gradient(135deg, #fff7d1, #ffe8a1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      animation: popIn 0.4s ease;">
+      <h4 class="text-center mb-3" style="color:#5b3e00; font-weight:700;">
+        🔒 กรุณาล็อกอินก่อนทำแบบทดสอบ
+      </h4>
+      <p class="text-center" style="font-size:1.1rem;">คุณต้องเข้าสู่ระบบก่อนจึงจะสามารถทำแบบทดสอบได้</p>
+      <div class="text-center mt-3">
+        <button class="btn btn-success px-4 mr-2" onclick="goLogin()">ไปล็อกอิน</button>
+        <button class="btn btn-secondary px-4" data-dismiss="modal">ย้อนกลับ</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<style>
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+
+<script>
+function startQuiz(file) {
+  const username = localStorage.getItem("username");
+  if (username) {
+    // ✅ ถ้าล็อกอินแล้ว ไปทำ quiz ได้เลย
+    window.location.href = file;
+  } else {
+    // ❌ ยังไม่ล็อกอิน → เด้ง modal
+    $('#loginRequiredModal').modal('show');
+  }
+}
+
+function goLogin() {
+  window.location.href = "login.html";
+}
+</script>
 </body>
 </html>
