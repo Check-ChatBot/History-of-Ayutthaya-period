@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Ayutthaya period</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png"/>
+    <!-- โหลดฟอนต์ Prompt -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body, * {
+            font-family: 'Prompt', sans-serif !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="curved-shape"></div>
+        <div class="curved-shape2"></div>
+        
+        <!-- Login Form -->
+        <div class="form-box Login">
+            <h2 class="animation" style="--D:0; --S:21">เข้าสู่ระบบ</h2>
+            <!-- เมื่อกด Login จะไป Main.html -->
+            <form onsubmit="handleLogin(event)">
+  <div class="input-box animation" style="--D:1; --S:22">
+      <input type="text" id="username" required>
+      <label>ชื่อผู้ใช้</label>
+  </div>
+  <div class="input-box animation" style="--D:2; --S:23">
+      <input type="password" id="password" required>
+      <label>รหัสผ่าน</label>
+  </div>
+  <div class="input-box animation" style="--D:3; --S:24">
+      <button class="btn" type="submit">เข้าสู่ระบบ</button>
+  </div>
+</form>
+
+<script>
+function handleLogin(e) {
+  e.preventDefault();
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  if(username && password){
+    localStorage.setItem("username", username);
+    localStorage.setItem("profilePic", "Guest.png"); // 👉 เปลี่ยนจาก default.png เป็น guest.png
+    window.location.href = "Main.html";
+  } else {
+    alert("กรุณากรอกชื่อผู้ใช้และรหัสผ่าน");
+  }
+}
+
+</script>
+
+                <div class="regi-link animation" style="--D:4; --S:25">
+                    <p>ไม่มีบัญชีใช่มั้ย? <br> 
+                        <a href="#" class="SignUpLink">ลงทะเบียน</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <div class="info-content Login">
+            <h2 class="animation" style="--D:0; --S:20 "><img src="logo.png" height="150" alt="Logo"></h2>
+            <p class="animation" style="--D:1; --S:21">
+                เว็บไซต์ประวัติศาสตร์<br>
+                สมัยอยุธยา
+            </p>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-box Register">
+            <h2 class="animation" style="--li:17; --S:0">ลงทะเบียน</h2>
+            <form action="#">
+                <div class="input-box animation" style="--li:18; --S:1">
+                    <input type="text" required>
+                    <label for="">ชื่อผู้ใช้</label>
+                    <box-icon type='solid' name='user' color="gray"></box-icon>
+                </div>
+
+                <div class="input-box animation" style="--li:19; --S:2">
+                    <input type="email" required>
+                    <label for="">อีเมล</label>
+                    <box-icon name='envelope' type='solid' color="gray"></box-icon>
+                </div>
+
+                <div class="input-box animation" style="--li:19; --S:3">
+                    <input type="password" required>
+                    <label for="">รหัสผ่าน</label>
+                    <box-icon name='lock-alt' type='solid' color="gray"></box-icon>
+                </div>
+
+                <div class="input-box animation" style="--li:20; --S:4">
+                    <button class="btn" type="submit">ลงทะเบียน</button>
+                </div>
+
+                <div class="regi-link animation" style="--li:21; --S:5">
+                    <p>มีบัญชีอยู่แล้วใช่ไหม? <br> 
+                        <a href="#" class="SignInLink">เข้าสู่ระบบ</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <div class="info-content Register">
+            <h2 class="animation" style="--li:17; --S:0"><img src="logo.png" height="150" alt="Logo"></h2>
+            <p class="animation" style="--li:18; --S:1">
+                เว็บไซต์ประวัติศาสตร์<br>
+                สมัยอยุธยา
+            </p>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="./script.js"></script>
+    
+</body>
+</html>

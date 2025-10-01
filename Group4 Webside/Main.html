@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History of Ayutthaya period</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="logo.png"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: lch(96.75% 12.27 91.85);
+      padding-top: 56px;
+    }
+    .navbar {
+      background-color: #8B7E66;
+    }
+    .navbar-nav .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #FFD700 !important;
+    }
+    .navbar-toggler {
+      border: none;
+      color: white;
+    }
+    .navbar-toggler i {
+      font-size: 1.5rem;
+    }
+    .form-inline .form-control {
+      border-radius: 20px 0 0 20px;
+    }
+    .form-inline .btn {
+      border-radius: 0 20px 20px 0;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+    .scroll-card {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .scroll-card::-webkit-scrollbar {
+      width: 6px;
+    }
+    .scroll-card::-webkit-scrollbar-thumb {
+      background: #aaa;
+      border-radius: 3px;
+    }
+    .scroll-card::-webkit-scrollbar-thumb:hover {
+      background: #888;
+    }
+    .table-wrapper {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: auto;
+    }
+    .table th, .table td {
+      text-align: center;
+      vertical-align: middle;
+      word-wrap: break-word;
+      white-space: normal;
+    }
+    .table-sm td, .table-sm th {
+      padding: 0.3rem;
+    }
+    section {
+      scroll-margin-top: 70px;
+    }
+    .footer-banner {
+      background-color: #F8E6A1;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    footer {
+      background-color: #D7C581;
+      padding: 15px 0;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* ✅ เพิ่มส่วนนี้เข้าใน <style> */
+    .highlight-box {
+      background-color: #eab828;
+      color: #000;
+      padding: 20px 30px;
+      border-radius: 20px;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* ===== Section: Location Box ===== */
+.location-section {
+  background-color: #f6e49b; /* สีพื้นหลังโทนทอง */
+  border-radius: 20px;
+  padding: 30px;
+  margin: 60px auto;
+  max-width: 1100px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border: 3px solid #d4a017; /* เส้นขอบกรอบ */
+}
+
+.location-section h2 {
+  text-align: center;
+  color: #5b3e00;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+/* กล่องข้อความด้านซ้าย */
+.info-box {
+  background-color: #fff8dc; /* สีครีมอ่อน */
+  border-radius: 15px;
+  padding: 25px 30px;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #333;
+  border: 2px solid #d1a63b; /* เส้นขอบทอง */
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* กล่องแผนที่ด้านขวา */
+.map-box img {
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid #d1a63b;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* ข้อความที่อยู่ */
+.footer-text {
+  text-align: center;
+  font-weight: 500;
+  margin-top: 20px;
+  color: #4b3e2b;
+}
+
+/* ปรับตำแหน่งและขนาดรูปภาพในส่วนแผนที่ */
+.map-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* แสดง 2 รูปต่อแถว */
+  gap: 15px; /* ระยะห่างระหว่างรูป */
+}
+
+.map-box img {
+  width: 100%;
+  height: 180px; /* ความสูงเท่ากัน */
+  object-fit: cover; /* ครอบเต็มกรอบโดยไม่บิด */
+  border-radius: 10px; /* มุมโค้ง */
+  border: 2px solid #d1a63b; /* เส้นขอบทอง */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ไปวาง */
+.map-box img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ✅ กล่องภาพแสดงเต็มจอ (Lightbox) */
+.lightbox {
+  display: none; /* ซ่อนเริ่มต้น */
+  position: fixed;
+  z-index: 9999;
+  inset: 0; /* ครอบเต็มหน้าจอ */
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ รูปภาพตอนขยาย */
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  animation: fadeIn 0.3s ease;
+  cursor: zoom-out;
+}
+
+/* ✅ เอฟเฟกต์จางเข้ามา */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+.map-box img {
+    cursor: zoom-in;
+}
+body {
+  font-family: 'Prompt', sans-serif;
+}
+
+  </style>
+  
+<script>
+function handleLogin(e) {
+  e.preventDefault();
+  const username = document.getElementById("username").value;
+  localStorage.setItem("username", username);
+  if (!localStorage.getItem("profilePic")) {
+    localStorage.setItem("profilePic", "Guest.png"); // รูปเริ่มต้น
+  }
+  window.location.href = "Main.html";
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const username = localStorage.getItem("username");
+  const profilePic = localStorage.getItem("profilePic");
+  const navUsername = document.getElementById("navUsername");
+  const navProfilePic = document.getElementById("navProfilePic");
+  const userDropdown = document.getElementById("userDropdown");
+
+  if (username) {
+    navUsername.innerText = username;
+    navProfilePic.src = profilePic || "default.png";
+  } else {
+    // ผู้เยี่ยมชม (ยังไม่ล็อกอิน)
+    navUsername.innerText = "ผู้เยี่ยมชม";
+    navProfilePic.src = "Guest.png";
+
+    // ปิด dropdown เดิม
+    userDropdown.removeAttribute("data-toggle");
+
+    // เมื่อคลิกผู้เยี่ยมชม ให้ไป login.html
+    userDropdown.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "login.html";
+    });
+  }
+});
+
+function logout() {
+  // ล้างข้อมูลเฉพาะของผู้ใช้
+  localStorage.removeItem("username");
+  localStorage.removeItem("profilePic");
+
+  // อัปเดตชื่อและรูปโปรไฟล์เป็นผู้เยี่ยมชม
+  const navUsername = document.getElementById("navUsername");
+  const navProfilePic = document.getElementById("navProfilePic");
+  const userDropdown = document.getElementById("userDropdown");
+
+  navUsername.innerText = "ผู้เยี่ยมชม";
+  navProfilePic.src = "Guest.png";
+
+  // ปิด dropdown เมนูทันที
+  $('.dropdown-menu').removeClass('show');
+
+  // ปิด dropdown functionality
+  userDropdown.removeAttribute("data-toggle");
+
+  // ให้คลิก “ผู้เยี่ยมชม” แล้วพาไปหน้า login
+  userDropdown.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "login.html";
+  });
+}
+
+function openProfile() {
+  // เปิด modal แก้ไขโปรไฟล์
+  document.getElementById("profileModal").style.display = "block";
+}
+</script>
+
+<script>
+function saveProfile() {
+  const newName = document.getElementById("editUsername").value;
+  const newPic = document.getElementById("editPic").files[0];
+
+  if (newName) localStorage.setItem("username", newName);
+
+  if (newPic) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      localStorage.setItem("profilePic", e.target.result);
+      location.reload();
+    }
+    reader.readAsDataURL(newPic);
+  } else {
+    location.reload();
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+  <a class="navbar-brand d-flex align-items-center" href="Main.html">
+    <img src="logo.png" height="32" alt="Logo">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarMenu">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"><a class="nav-link" href="#home">หน้าแรก</a></li>
+      <li class="nav-item"><a class="nav-link" href="#history">ประวัติโดยย่อ</a></li>
+      <li class="nav-item"><a class="nav-link" href="#kings">กษัตริย์อยุธยา</a></li>
+      <li class="nav-item"><a class="nav-link" href="#location">สถานที่ตั้ง</a></li>
+      <li class="nav-item"><a class="nav-link" href="learning.html">บทเรียนออนไลน์</a></li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="ค้นหา..." aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit">ไป</button>
+        </div>
+      </div>
+    </form>
+    <div class="dropdown ml-3">
+  <a class="dropdown-toggle d-flex align-items-center text-white" href="#" id="userDropdown" data-toggle="dropdown">
+    <img id="navProfilePic" src="default.png" class="rounded-circle" width="32" height="32">
+    <span id="navUsername" class="ml-2"></span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right">
+    <a class="dropdown-item" href="#" onclick="openProfile()">แก้ไขโปรไฟล์</a>
+    <a class="dropdown-item text-danger" href="#" onclick="logout()">ออกจากระบบ</a>
+  </div>
+</div>
+    </a>
+  </div>
+</nav>
+
+<div id="home"></div>
+
+<!-- Carousel -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+    <li data-target="#myCarousel" data-slide-to="5"></li>
+  </ol>
+  <!-- Slides -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="S1.jpg" alt="Slide 1">
+    </div>
+    <div class="carousel-item">
+      <img src="S2.jpg" alt="Slide 2">
+    </div>
+    <div class="carousel-item">
+      <img src="S3.jpg" alt="Slide 3">
+    </div>
+    <div class="carousel-item">
+      <img src="S4.jpg" alt="Slide 4">
+    </div>
+    <div class="carousel-item">
+      <img src="S5.jpg" alt="Slide 5">
+    </div>
+  </div>
+  <!-- Controls -->
+  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<style> 
+.carousel-item img {
+width: 100%; /* ยืดเต็มจอ */ 
+height: 450px; /* กำหนดความสูง */
+object-fit: fill; /* ครอบเต็มโดยไม่บิดสัดส่วน */ 
+}
+</style>
+<!-- Section: Cards -->
+<section id="history" class="container my-5">
+  <!-- Highlight Box -->
+<div class="container my-4">
+  <div class="highlight-box">
+    นครประวัติศาสตร์พระนครศรีอยุธยาได้รับประกาศให้เป็นมรดกโลก 
+    จากองค์การยูเนสโกในปี พ.ศ. 2534 การขึ้นทะเบียนนี้เกิดขึ้นภายหลังการดำเนินงานของกรมศิลปากร 
+    ในการสำรวจและบูรณะโบราณสถานมาตั้งแต่ พ.ศ. 2478 
+    และจัดตั้งโครงการอุทยานประวัติศาสตร์พระนครศรีอยุธยาในปี พ.ศ. 2525 
+    เพื่อดูแลรักษาพื้นที่อย่างเป็นระบบ 
+  </div>
+</div>
+<h2 class="text-center mb-4">ประวัติโดยย่อ</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body scroll-card">
+          <h5 class="card-title">การสถาปนา</h5>
+          <p class="card-text">
+ 1. ปี พ.ศ. 1893 (ค.ศ. 1350) : สมเด็จพระรามาธิบดีที่ 1 (พระเจ้าอู่ทอง) ทรงสถาปนา กรุงศรีอยุธยา เป็นราชธานี<br>
+ 2. เหตุผลในการเลือกที่ตั้ง<br>
+ 3. พื้นที่เป็นเกาะ แม่น้ำ 3 สายล้อมรอบ (เจ้าพระยา, ลพบุรี, ป่าสัก) ป้องกันข้าศึกได้ง่าย<br>
+ 4. พื้นที่อุดมสมบูรณ์ เหมาะแก่การเพาะปลูก<br>
+ 5. ทำเลดีสำหรับการค้า ทั้งทางน้ำภายในและการค้าต่างประเทศ<br>
+ 6. ลักษณะเมือง วางผังเมืองเป็นเกาะ มีคูน้ำ คูคลอง กำแพงเมือง และป้อมปราการรอบด้าน ทำให้กลายเป็นศูนย์กลางการปกครอง เศรษฐกิจ วัฒนธรรม และกลายเป็นศูนย์กลางอำนาจทางการเมือง การค้า และศาสนาในเอเชียตะวันออกเฉียงใต้
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body scroll-card">
+          <h5 class="card-title">รูปแบบการปกครอง</h5>
+          <p class="card-text">
+1. พระมหากษัตริย์<br>
+  1.1 ทรงเป็น สมมติเทพ มีอำนาจสูงสุดในการปกครองบ้านเมือง<br>
+  1.2 ทรงควบคุมทั้งการปกครอง ศาสนา การทหาร และเศรษฐกิจ<br>
+  1.3 ใช้ระบอบ สมบูรณาญาสิทธิราชย์<br>
+<br>
+ 2. ระบบจตุสดมภ์ (เสาหลัก 4 กรม)<br>
+  2.1  กรมเวียง → ดูแลความสงบเรียบร้อยในเมือง การป้องกันบ้านเมือง<br>
+  2.2  กรมวัง → ดูแลงานในราชสำนักและพระราชวัง<br>
+  2.3  กรมคลัง → เก็บภาษี การคลัง และการค้าต่างประเทศ<br>
+  2.4  กรมนา → ดูแลที่ดิน การเกษตร และผลผลิต<br>
+<br>
+3. การปกครองหัวเมือง<br>
+  3.1   หัวเมืองชั้นใน (ใกล้ราชธานี) → อยู่ภายใต้การควบคุมใกล้ชิดของส่วนกลาง<br>
+  3.2  หัวเมืองชั้นนอก (ห่างออกไป) → ปกครองตนเองได้บ้าง แต่ต้องส่งส่วยและกำลังพล<br>
+  3.3  หัวเมืองประเทศราช → ต้องส่งบรรณาการและแสดงความจงรักภักดี เช่น ล้านนา เขมร มลายู<br>
+<br>
+4. ระบบศักดินา<br>
+  4.1  เป็นการแบ่งชั้นยศและที่ดินตามฐานะ<br>
+  4.2  ขุนนาง ข้าราชการ ไพร่ ทาส ได้รับที่ดินตามตำแหน่ง<br>
+  4.3  ไพร่ต้องสังกัดมูลนาย และมีหน้าที่เข้าเวรรับใช้ราชการ
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body scroll-card">
+          <h5 class="card-title">วรรณกรรม</h5>
+          <p class="card-text">
+            ช่วงต้น (พ.ศ. 1893 - 2100 โดยประมาณ)<br>
+ 1. เน้น ศาสนาและคำสอนทางพุทธศาสนา<br>
+ 2. นิทานชาดก และวรรณกรรมแปลจากภาษาบาลี-สันสกฤต<br>
+ตัวอย่าง เช่น ไตรภูมิพระร่วง (แม้แต่งสมัยสุโขทัย แต่ยังมีอิทธิพลต่อวรรณกรรมอยุธยา) สุภาษิตพระร่วง เป็นต้น<br>
+ช่วงกลาง (พ.ศ. 2100 - 2200 โดยประมาณ)<br>
+ 1. เริ่มมี วรรณกรรมโลกีย์ (รัก ใคร่ โศกเศร้า)<br>
+ 2. มีงานประพันธ์ในรูปแบบ ลิลิต กาพย์ กลอน โคลง<br>
+ตัวอย่าง เช่น  ลิลิตพระลอ → เรื่องรักโศกเศร้า กำศรวลศรีปราชญ์ → แสดงความคิดถึงและอารมณ์รัก เป็นต้น<br>
+ช่วงปลาย (พ.ศ. 2200 - 2310 ก่อนเสียกรุงครั้งที่ 2)<br>
+ 1. วรรณกรรมเฟื่องฟูมาก ทั้ง บทละคร บทเสภา และกาพย์เห่เรือ<br>
+ 2. ได้รับอิทธิพลจากอินเดีย ชวา และวรรณคดีท้องถิ่น<br>
+ตัวอย่าง เช่น <br>
+1. รามเกียรติ์ (ดัดแปลงจากรามายณะ) <br>
+2. อิเหนา (ได้รับอิทธิพลจากชวา)<br>
+3. อุณรุท<br>
+4. กาพย์เห่เรือ (สมเด็จพระเจ้าตากสินมหาราชทรงพระราชนิพนธ์หลังเสียกรุง แต่สืบทอดรูปแบบวรรณกรรมอยุธยา)<br>
+5. พงศาวดารกรุงศรีอยุธยา → บันทึกเหตุการณ์ประวัติศาสตร์<br>
+6. วรรณกรรมสมัยอยุธยาได้รับอิทธิพลจากศาสนาและราชสำนัก
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Table -->
+<section id="kings">
+<section id="kings" class="container my-5">
+  <h2 class="text-center mb-4">รายพระนามกษัตริย์ 33 พระองค์</h2>
+  <div class="table-wrapper">
+    <table class="table table-bordered table-striped text-center table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th>ลำดับ</th>
+          <th>รายพระนาม</th>
+          <th>ปีครองราชย์</th>
+          <th>จำนวนปี</th>
+          <th>ราชวงศ์</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>สมเด็จพระรามาธิบดีที่ 1 </td><td>พุทธศักราช 1893 - 1912 </td><td>19 ปี</td><td>อู่ทอง</td></tr>
+        <tr><td>2</td><td>สมเด็จพระราเมศวร(โอรสพระเจ้าอู่ทอง) ครองราชย์ครั้งที่ 1</td><td>พุทธศักราช 1912 - 1913 </td><td>1 ปี</td><td>อู่ทอง</td></tr>
+        <tr><td>3</td><td>สมเด็จพระบรมราชาธิราชที่ 1(ขุนหลวงพะงั่ว)</td><td>พุทธศักราช 1913 - 1931 </td><td>18 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>4</td><td>สมเด็จพระเจ้าทองลัน(โอรสขุนหลวงพะงั่ว)</td><td>พุทธศักราช 1931 - 1931 </td><td>7 วัน</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td></td><td>สมเด็จพระราเมศวร ครองราชย์ครั้งที่2</td><td>พุทธศักราช 1931 - 1938</td><td>7 ปี</td><td>อู่ทอง</td></tr>
+        <tr><td>5</td><td> สมเด็จพระพระรามราชาธิราช(โอรสพระราเมศวร) </td><td>พุทธศักราช 1938 - 1952 </td><td>14 ปี</td><td>อู่ทอง</td></tr>
+        <tr><td>6</td><td> สมเด็จพระอินราชาธิราช(เจ้านครอินทร์) โอรสพระอนุชาของขุนหลวงพระงั่ว </td><td>พุทธศักราช 1952 - 1967 </td><td>16 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>7</td><td> สมเด็จพระบรมราชาธิราชที่ 2(เจ้าสามพระยา) โอรสเจ้านครอินทร์ </td><td>พุทธศักราช 1967 - 1991 </td><td>16 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>8</td><td> สมเด็จพระบรมไตรโลกนาถ(โอรสเจ้าสามพระยา) </td><td>พุทธศักราช 1991 - 2031 </td><td>40 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>9</td><td> สมเด็จพระบรมราชาธิราชที่ 3(โอรสพระบรมไตรโลกนาถ) </td><td>พุทธศักราช 2031 - 2034 </td><td>3 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>10</td><td> สมเด็จพระรามาธิบดีที่ 2(โอรสพระบรมไตรโลกนาถ) </td><td>พุทธศักราช 2034 - 2072 </td><td>38 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>11</td><td> สมเด็จพระบรมราชาธิราชที่ 4(โอรสพระรามาธิบดีที่ 2) </td><td>พุทธศักราช 2072 - 2076 </td><td>4 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>12</td><td> พระรัษฎาธิราช(โอรสพระบรมราชาธิราชที่ 4) </td><td>พุทธศักราช 2076 - 2077 </td><td>1 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>13</td><td> สมเด็จพระไชยราชาธิราช(โอรสพระรามาธิบดีที่ 2) </td><td>พุทธศักราช 2077 - 2089 </td><td>12 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>14</td><td> พระแก้วฟ้า (พระยอดฟ้า)(โอรสไชยราชาธิราช) </td><td>พุทธศักราช 2089 - 2091 </td><td>2 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>15</td><td> สมเด็จพระมหาจักรพรรดิ(พระเฑียรราชา) </td><td>พุทธศักราช 2091 - 2111 </td><td>20 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>16</td><td> สมเด็จพระมหินทราธิราช(โอรสพระมหาจักรพรรดิ) </td><td>พุทธศักราช 2111 - 2112 </td><td>1 ปี</td><td>สุพรรณภูมิ</td></tr>
+        <tr><td>17</td><td> สมเด็จพระมหาธรรมราชา </td><td>พุทธศักราช 2112 - 2133 </td><td>21 ปี</td><td>สุโขทัย</td></tr>
+        <tr><td>18</td><td> สมเด็จพระนเรศวรมหาราช(โอรสพระมหาธรรมราชา) </td><td>พุทธศักราช 2133 - 2148 </td><td>15 ปี</td><td>สุโขทัย</td></tr>
+        <tr><td>19</td><td> สมเด็จพระเอกาทศรถ(โอรสพระมหาธรรมราชา) </td><td>พุทธศักราช 2148 - 2153</td><td>5 ปี</td><td>สุโขทัย</td></tr>
+        <tr><td>20</td><td> พระศรีเสาวภาคย์(โอรสพระเอกาทศรถ) </td><td>พุทธศักราช 2153 - 2153 </td><td>1 ปี</td><td>สุโขทัย</td></tr>
+        <tr><td>21</td><td> สมเด็จพระเจ้าทรงธรรม(โอรสพระเอกาทศรถ) </td><td>พุทธศักราช 2153 - 2171 </td><td>17 ปี</td><td>สุโขทัย</td></tr>
+        <tr><td>22</td><td> สมเด็จพระเชษฐาธิราช(โอรสพระเจ้าทรงธรรม) </td><td>พุทธศักราช 2172 - 2172 </td><td>8 เดือน</td><td>สุโขทัย</td></tr>
+        <tr><td>23</td><td> พระอาทิตยวงศ์(โอรสพระเจ้าทรงธรรม) </td><td>พุทธศักราช 2172 </td><td>28 วัน </td><td>สุโขทัย</td></tr>
+        <tr><td>24</td><td> สมเด็จพระเจ้าปราสาททอง(ออกญากลาโหมสุริยวงค์) </td><td>พุทธศักราช 2172 - 2199 </td><td>27 ปี</td><td>ปราสาททอง</td></tr>
+        <tr><td>25</td><td> สมเด็จเจ้าฟ้าไชย(โอรสพระเจ้าปราสาททอง) </td><td>พุทธศักราช 2199 </td><td>2 วัน</td><td>ปราสาททอง</td></tr>
+        <tr><td>26</td><td> พระศรีสุธรรมราชา(อนุชาพระเจ้าปราสาททอง) </td><td>พุทธศักราช 2199 </td><td>3 เดือน</td><td>ปราสาททอง</td></tr>
+        <tr><td>27</td><td> สมเด็จพระนารายณ์มหาราช(โอรสพระเจ้าปรารสาททอง) </td><td>พุทธศักราช 2199 - 2231 </td><td>32 ปี</td><td>ปราสาททอง</td></tr>
+        <tr><td>28</td><td> สมเด็จพระเพทราชา </td><td>พุทธศักราช 2231 - 2246 </td><td>15 ปี</td><td>บ้านพลูหลวง</td></tr>
+        <tr><td>29</td><td> สมเด็จพระสรรเพชญ์ที่ 8(พระเจ้าเสือ) </td><td>พุทธศักราช 2246 - 2252 </td><td>6 ปี</td><td>บ้านพลูหลววง</td></tr>
+        <tr><td>30</td><td> สมเด็จพระเจ้าท้ายสระ(โอรสพระเจ้าเสือ) </td><td>พุทธศักราช 2252 - 2275 </td><td>24 ปี</td><td>บ้านพลูหลวง</td></tr>
+        <tr><td>31</td><td> สมเด็จพระเจ้าอยู่หัวบรมโกศ(โอรสพระเจ้าเสือ) </td><td>พุทธศักราช 2275 - 2301 </td><td>26 ปี</td><td>บ้านพลูหลวง</td></tr>
+        <tr><td>32</td><td> สมเด็จพระเจ้าอุทุมพร(โอรสพระเจ้าอยู่หัวบรมโกศ) </td><td>พุทธศักราช 2301 </td><td>2 เดือน</td><td>บ้านพลูหลวง</td></tr>
+        <tr><td>33</td><td> สมเด็จพระที่นั่งสุริยาสน์อมรินทร์(พระเจ้าเอกทัศน์)(โอรสพระเจ้าอยู่หัวบรมโกศ) </td><td>พุทธศักราช 2301 - 2310 </td><td>9 ปี</td><td>บ้านพลูหลวง</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</section>
+
+<!-- Banner -->
+<section class="text-center my-5">
+  <img src="Banner1.jpg" alt="Banner" class="img-fluid" style="width:100%; height:250px; object-fit: border;">
+</section>
+<section id="location" class="container my-5"></section>
+<h2 class="text-center mb-4">สถานที่ตั้ง</h2>
+<section id="location" class="location-section">
+  <h2>วัดพระศรีสรรเพชญ์ จังหวัดพระนครศรีอยุธยา</h2>
+
+    <div class="row align-items-center">
+      <!-- กล่องข้อความ -->
+      <div class="col-md-7">
+        <div class="info-box">
+          วัดพระศรีสรรเพชญ์ หรือ วัดพระศรีสรรเพชญ์ เป็นอดีตวัดหลวงประจำพระราชวังโบราณ 
+          อยุธยา ตั้งอยู่ที่ตำบลประตูชัย อำเภอพระนครศรีอยุธยา 
+          จังหวัดพระนครศรีอยุธยา ทางทิศเหนือของวิหารพระมงคลบพิตร 
+          ในเขตอุทยานประวัติศาสตร์พระนครศรีอยุธยา 
+          สร้างขึ้นราวปี พ.ศ. 2035 โดยสมเด็จพระรามาธิบดีที่ 2
+        </div>
+      </div>
+
+      <!-- แผนที่ -->
+      <div class="col-md-5 map-box">
+        <img src="M1.jpg" alt="แผนที่วัดพระศรีสรรเพชญ์" href="#">
+        <img src="M2.jpg" alt="แผนที่วัดพระศรีสรรเพชญ์" href="#">
+        <img src="M3.jpg" alt="แผนที่วัดพระศรีสรรเพชญ์" href="#">
+        <img src="M4.jpg" alt="แผนที่วัดพระศรีสรรเพชญ์" href="#">
+      </div>
+    </div>
+
+    <!-- ข้อความที่อยู่ -->
+    <div class="footer-text">
+      ที่ตั้ง: ตำบลประตูชัย อำเภอพระนครศรีอยุธยา จังหวัดพระนครศรีอยุธยา
+    </div>
+  </section>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+    $("a.nav-link[href^='#']").on('click', function(e) {
+      e.preventDefault();
+      var target = $(this.getAttribute('href'));
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top - 70 // -70 กัน navbar ทับ
+        }, 800); // 800ms = 0.8 วินาที
+      }
+    });
+  });
+</script>
+
+<!-- ✅ Lightbox Container -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Full Image">
+</div>
+
+<script>
+  // ✅ เมื่อคลิกรูป จะเปิด lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  const mapImages = document.querySelectorAll('.map-box img');
+
+  mapImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  // ✅ คลิกที่ภาพหรือพื้นหลังเพื่อปิด
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+</script>
+<!-- ✅ Modal แก้ไขโปรไฟล์ -->
+<div id="profileModal" class="modal" style="display:none;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4" style="
+      border-radius: 15px;
+      background: linear-gradient(145deg, #fffbea, #f5e6a3);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      border: 2px solid #d4a017;
+      animation: fadeInProfile 0.4s ease;">
+      <h4 class="text-center mb-3" style="color:#5b3e00; font-weight:700;">
+        ✏️ แก้ไขโปรไฟล์
+      </h4>
+
+      <div class="form-group">
+        <label for="editUsername" style="font-weight:600;">ชื่อผู้ใช้ใหม่:</label>
+        <input type="text" id="editUsername" class="form-control" placeholder="ระบุชื่อใหม่ของคุณ...">
+      </div>
+
+      <div class="form-group">
+        <label for="editPic" style="font-weight:600;">เลือกรูปโปรไฟล์ใหม่:</label>
+        <input type="file" id="editPic" class="form-control-file" accept="image/*">
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-success px-4" onclick="saveProfile()">บันทึก</button>
+        <button class="btn btn-secondary px-4" onclick="closeProfile()">ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes fadeInProfile {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<script>
+function openProfile() {
+  document.getElementById("profileModal").style.display = "block";
+}
+
+function closeProfile() {
+  document.getElementById("profileModal").style.display = "none";
+}
+
+function saveProfile() {
+  const newName = document.getElementById("editUsername").value.trim();
+  const newPic = document.getElementById("editPic").files[0];
+
+  if (newName) localStorage.setItem("username", newName);
+
+  if (newPic) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      localStorage.setItem("profilePic", e.target.result);
+      location.reload(); // โหลดใหม่เพื่ออัปเดตข้อมูล
+    }
+    reader.readAsDataURL(newPic);
+  } else {
+    location.reload();
+  }
+}
+</script>
+</body>
+</html>
