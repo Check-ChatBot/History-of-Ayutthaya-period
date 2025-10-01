@@ -23,7 +23,7 @@
         <!-- Login Form -->
         <div class="form-box Login">
             <h2 class="animation" style="--D:0; --S:21">เข้าสู่ระบบ</h2>
-            <!-- เมื่อกด Login จะไป Main.html -->
+            <!-- เมื่อกด Login จะไป index.html -->
             <form onsubmit="handleLogin(event)">
   <div class="input-box animation" style="--D:1; --S:22">
       <input type="text" id="username" required>
@@ -47,7 +47,7 @@ function handleLogin(e) {
   if(username && password){
     localStorage.setItem("username", username);
     localStorage.setItem("profilePic", "Guest.png"); // 👉 เปลี่ยนจาก default.png เป็น guest.png
-    window.location.href = "Main.html";
+    window.location.href = "index.html";
   } else {
     alert("กรุณากรอกชื่อผู้ใช้และรหัสผ่าน");
   }
