@@ -205,6 +205,29 @@ body {
   font-family: 'Prompt', sans-serif;
 }
 
+/* ✅ จัดคอลัมน์รายพระนามให้อยู่ชิดซ้าย */
+.table td:nth-child(2), 
+.table th:nth-child(2) {
+  text-align: left !important;
+  padding-left: 15px;
+}
+
+.footer-link:hover {
+  color: #ffc107;
+  text-shadow: 0 0 5px #ffc107;
+  transition: 0.3s;
+}
+
+.social-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icon:hover {
+  color: #ffc107;
+  transform: scale(1.2);
+}
+
   </style>
   
 <script>
@@ -381,8 +404,8 @@ function saveProfile() {
 <style> 
 .carousel-item img {
 width: 100%; /* ยืดเต็มจอ */ 
-height: 450px; /* กำหนดความสูง */
-object-fit: fill; /* ครอบเต็มโดยไม่บิดสัดส่วน */ 
+height: 100%; /* กำหนดความสูง */
+object-fit: cover; /* ครอบเต็มโดยไม่บิดสัดส่วน */ 
 }
 </style>
 <!-- Section: Cards -->
@@ -518,11 +541,15 @@ object-fit: fill; /* ครอบเต็มโดยไม่บิดสั�
         <tr><td>26</td><td> พระศรีสุธรรมราชา(อนุชาพระเจ้าปราสาททอง) </td><td>พุทธศักราช 2199 </td><td>3 เดือน</td><td>ปราสาททอง</td></tr>
         <tr><td>27</td><td> สมเด็จพระนารายณ์มหาราช(โอรสพระเจ้าปรารสาททอง) </td><td>พุทธศักราช 2199 - 2231 </td><td>32 ปี</td><td>ปราสาททอง</td></tr>
         <tr><td>28</td><td> สมเด็จพระเพทราชา </td><td>พุทธศักราช 2231 - 2246 </td><td>15 ปี</td><td>บ้านพลูหลวง</td></tr>
-        <tr><td>29</td><td> สมเด็จพระสรรเพชญ์ที่ 8(พระเจ้าเสือ) </td><td>พุทธศักราช 2246 - 2252 </td><td>6 ปี</td><td>บ้านพลูหลววง</td></tr>
+        <tr><td>29</td><td> สมเด็จพระสรรเพชญ์ที่ 8(พระเจ้าเสือ) </td><td>พุทธศักราช 2246 - 2252 </td><td>6 ปี</td><td>บ้านพลูหลวง</td></tr>
         <tr><td>30</td><td> สมเด็จพระเจ้าท้ายสระ(โอรสพระเจ้าเสือ) </td><td>พุทธศักราช 2252 - 2275 </td><td>24 ปี</td><td>บ้านพลูหลวง</td></tr>
         <tr><td>31</td><td> สมเด็จพระเจ้าอยู่หัวบรมโกศ(โอรสพระเจ้าเสือ) </td><td>พุทธศักราช 2275 - 2301 </td><td>26 ปี</td><td>บ้านพลูหลวง</td></tr>
         <tr><td>32</td><td> สมเด็จพระเจ้าอุทุมพร(โอรสพระเจ้าอยู่หัวบรมโกศ) </td><td>พุทธศักราช 2301 </td><td>2 เดือน</td><td>บ้านพลูหลวง</td></tr>
         <tr><td>33</td><td> สมเด็จพระที่นั่งสุริยาสน์อมรินทร์(พระเจ้าเอกทัศน์)(โอรสพระเจ้าอยู่หัวบรมโกศ) </td><td>พุทธศักราช 2301 - 2310 </td><td>9 ปี</td><td>บ้านพลูหลวง</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </tbody>
     </table>
   </div>
@@ -531,7 +558,7 @@ object-fit: fill; /* ครอบเต็มโดยไม่บิดสั�
 
 <!-- Banner -->
 <section class="text-center my-5">
-  <img src="Banner1.jpg" alt="Banner" class="img-fluid" style="width:100%; height:250px; object-fit: border;">
+  <img src="Banner1.jpg" alt="Banner" class="img-fluid" style="width:100%; height:100%; object-fit: cover;">
 </section>
 <section id="location" class="container my-5"></section>
 <h2 class="text-center mb-4">สถานที่ตั้ง</h2>
@@ -672,5 +699,88 @@ function saveProfile() {
   }
 }
 </script>
+<!-- Scripts (Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.createElement("div");
+  lightbox.classList.add("lightbox");
+  document.body.appendChild(lightbox);
+
+  const img = document.createElement("img");
+  lightbox.appendChild(img);
+
+  document.querySelectorAll(".map-box img").forEach(image => {
+    image.addEventListener("click", () => {
+      img.src = image.src;
+      lightbox.style.display = "flex";
+    });
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+});
+</script>
+<!-- Footer -->
+<footer class="text-center text-lg-start text-white mt-5" style="background: linear-gradient(135deg, #1b2735 0%, #090a0f 100%);">
+  <div class="container p-4 pb-0">
+    <div class="row">
+      <!-- ข้อมูลติดต่อ -->
+      <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 fw-bold text-warning">
+          <i class="fa-solid fa-landmark me-2"></i>เกี่ยวกับเรา
+        </h5>
+        <p>
+          เว็บไซต์นี้จัดทำขึ้นเพื่อเผยแพร่ความรู้ทางประวัติศาสตร์ของกรุงศรีอยุธยา 
+          และรวบรวมข้อมูลกษัตริย์ในแต่ละยุคอย่างถูกต้อง
+        </p>
+      </div>
+
+      <!-- ลิงก์สำคัญ -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 fw-bold text-warning">
+          <i class="fa-solid fa-link me-2"></i>ลิงก์สำคัญ
+        </h5>
+        <p><a href="#" class="text-white text-decoration-none footer-link">หน้าแรก</a></p>
+        <p><a href="#" class="text-white text-decoration-none footer-link">ประวัติศาสตร์</a></p>
+        <p><a href="#" class="text-white text-decoration-none footer-link">แบบทดสอบ</a></p>
+        <p><a href="#" class="text-white text-decoration-none footer-link">ติดต่อเรา</a></p>
+      </div>
+
+      <!-- โซเชียลมีเดีย -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 fw-bold text-warning">
+          <i class="fa-solid fa-share-nodes me-2"></i>ติดตามเรา
+        </h5>
+        <p>
+          <a href="#" class="me-3 text-white social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="me-3 text-white social-icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="me-3 text-white social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="me-3 text-white social-icon"><i class="fa-brands fa-youtube"></i></a>
+        </p>
+        <p><i class="fa-solid fa-envelope me-2"></i>info@ayutthayahistory.com</p>
+        <p><i class="fa-solid fa-phone me-2"></i>+66 89 999 9999</p>
+      </div>
+    </div>
+
+    <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+
+    <!-- Copyright -->
+    <div class="row d-flex align-items-center">
+      <div class="col-md-8 col-lg-8 text-md-start text-center mb-3 mb-md-0">
+        <p class="mb-0">
+          © 2025 <span class="fw-bold text-warning">Ayutthaya History</span> | All Rights Reserved
+        </p>
+      </div>
+      <div class="col-md-4 col-lg-4 text-md-end text-center">
+        <a href="#" class="text-white text-decoration-none small">นโยบายความเป็นส่วนตัว</a> |
+        <a href="#" class="text-white text-decoration-none small">เงื่อนไขการใช้งาน</a>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

@@ -79,10 +79,13 @@
     }
 
     .card img {
-      height: 220px;
-      object-fit: cover;
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 1px solid #ddd;
       transition: transform 0.5s ease;
-    }
+    }   
+
 
     .card:hover img {
       transform: scale(1.1);
@@ -220,37 +223,37 @@ function openProfile() {
       <!-- การ์ดแต่ละบท -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm" data-toggle="modal" data-target="#lessonModal1">
-          <img src="B1.jpg" class="card-img-top"  alt="บทที่ 1" style="width:100%; height:250px; object-fit: fill;">
+          <img src="B1.jpg" class="card-img-top"  alt="บทที่ 1">
           <div class="card-body text-center"><h5 class="card-title">บทที่ 1 การสถาปนากรุงศรีอยุธยา</h5></div>
         </div>
       </div>
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm" data-toggle="modal" data-target="#lessonModal2">
-          <img src="B2.jpg" class="card-img-top" alt="บทที่ 2" style="width:100%; height:250px; object-fit: fill;">
+          <img src="B2.jpg" class="card-img-top" alt="บทที่ 2">
           <div class="card-body text-center"><h5 class="card-title">บทที่ 2 การปกครองสมัยกรุงศรีอยุธยา</h5></div>
         </div>
       </div>
         <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm" data-toggle="modal" data-target="#lessonModal3">
-          <img src="B3.jpg" class="card-img-top" alt="บทที่ 3" style="width:100%; height:250px; object-fit: fill;">
+          <img src="B3.jpg" class="card-img-top" alt="บทที่ 3">
           <div class="card-body text-center"><h5 class="card-title">บทที่ 3 ศิลปะและวัฒนธรรมสมัยกรุงศรีอยุธยา</h5></div>
         </div>
       </div>
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm" data-toggle="modal" data-target="#lessonModal4">
-          <img src="B4.jpg" class="card-img-top" alt="บทที่ 4" style="width:100%; height:250px; object-fit: fill;">
+          <img src="B4.jpg" class="card-img-top" alt="บทที่ 4">
           <div class="card-body text-center"><h5 class="card-title">บทที่ 4 เหตุการณ์สำคัญในสมัยกรุงศรีอยุธยา</h5></div>
         </div>
       </div>
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm" data-toggle="modal" data-target="#lessonModal5">
-          <img src="B5.jpg" class="card-img-top" alt="บทที่ 5" style="width:100%; height:250px; object-fit: fill;">
+          <img src="B5.jpg" class="card-img-top" alt="บทที่ 5">
           <div class="card-body text-center"><h5 class="card-title">บทที่ 5 เศรษฐกิจและการค้าสมัยกรุงศรีอยุธยา</h5></div>
         </div>
       </div>
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm" data-toggle="modal" data-target="#lessonModal6">
-          <img src="B6.jpg" class="card-img-top" alt="บทที่ 6" style="width:100%; height:250px; object-fit: fill;">
+          <img src="B6.jpg" class="card-img-top" alt="บทที่ 6">
           <div class="card-body text-center"><h5 class="card-title">บทที่ 6 ความสัมพันธ์กับต่างประเทศสมัยกรุงศรีอยุธยา</h5></div>
         </div>
       </div>
@@ -642,12 +645,12 @@ function startQuiz(file) {
       box-shadow: 0 5px 20px rgba(0,0,0,0.3);
       animation: popIn 0.4s ease;">
       <h4 class="text-center mb-3" style="color:#5b3e00; font-weight:700;">
-        🔒 กรุณาล็อกอินก่อนทำแบบทดสอบ
+        🔒 กรุณาเข้าสู่ระบบก่อนทำแบบทดสอบ
       </h4>
       <p class="text-center" style="font-size:1.1rem;">คุณต้องเข้าสู่ระบบก่อนจึงจะสามารถทำแบบทดสอบได้</p>
       <div class="text-center mt-3">
         <button class="btn btn-success px-4 mr-2" onclick="goLogin()">เข้าสู่ระบบ</button>
-        <button class="btn btn-secondary px-4" data-dismiss="modal">ย้อนกลับ</button>
+        <button class="btn btn-secondary px-4" data-dismiss="modal">ยกเลิก</button>
       </div>
     </div>
   </div>
