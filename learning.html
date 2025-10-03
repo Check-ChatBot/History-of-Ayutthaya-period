@@ -679,5 +679,41 @@ function goLogin() {
   window.location.href = "login.html";
 }
 </script>
+<script>
+// เพิ่มตัวเลขบอกหน้า (Page Indicator) ให้แต่ละ Carousel
+document.addEventListener("DOMContentLoaded", function () {
+  // เลือก Carousel ทั้งหมดในหน้า
+  document.querySelectorAll(".carousel").forEach((carousel) => {
+    const totalSlides = carousel.querySelectorAll(".carousel-item").length;
+
+    // สร้างตัวแสดงเลขหน้า
+    const indicator = document.createElement("div");
+    indicator.classList.add("page-indicator");
+    indicator.textContent = `1 / ${totalSlides}`;
+    carousel.appendChild(indicator);
+
+    // อัปเดตเลขหน้าทุกครั้งที่สไลด์เปลี่ยน
+    $(carousel).on("slid.bs.carousel", function (e) {
+      const index = $(e.relatedTarget).index() + 1;
+      indicator.textContent = `${index} / ${totalSlides}`;
+    });
+  });
+});
+</script>
+
+<style>
+.page-indicator {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 1rem;
+  backdrop-filter: blur(4px);
+}
+</style>
 </body>
 </html>
