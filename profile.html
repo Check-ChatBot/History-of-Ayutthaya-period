@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History of Ayutthaya</title>
+  <link rel="icon" type="image/png" href="logo.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <style>
+    body {
+    font-family: 'Prompt', sans-serif;
+    background: lch(96.75% 12.27 91.85);
+    padding-top: 56px;
+    }
+
+    /* ปรับ modal */
+    .modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #fffdf5, #fceabb);
+    font-family: 'Prompt', sans-serif;
+    }
+    .modal-header {
+    border-bottom: none;
+    text-align: center;
+    padding-bottom: 0;
+    }
+    .modal-header h4 {
+    font-weight: 600;
+    color: #8B7E66;
+    }
+    .modal-body label {
+    font-weight: 500;
+    color: #5a4f3e;
+    }
+    .modal-footer {
+    border-top: none;
+    justify-content: center;
+    }
+    .btn-save {
+    background: #FFD700;
+    color: #000;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 6px 20px;
+    transition: 0.3s;
+    }
+    .btn-save:hover {
+    background: #ffcc00;
+    transform: scale(1.05);
+    }
+    .btn-cancel {
+    background: #ccc;
+    color: #333;
+    border-radius: 20px;
+    padding: 6px 20px;
+    }
+
+    .navbar {
+      background-color: #8B7E66;
+    }
+    .navbar-nav .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #FFD700 !important;
+    }
+    .navbar-toggler {
+      border: none;
+      color: white;
+    }
+    .navbar-toggler i {
+      font-size: 1.5rem;
+    }
+    .form-inline .form-control {
+      border-radius: 20px 0 0 20px;
+    }
+    .form-inline .btn {
+      border-radius: 0 20px 20px 0;
+    }
+    .profile-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+      max-width: 900px;
+      margin: auto;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .profile-card:hover { transform: translateY(-5px); }
+    .profile-header {
+      background: linear-gradient(90deg, #c6a85b, #8b7e66);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    .profile-header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .profile-header h2 { font-weight: 600; }
+    .profile-header p { font-size: 1rem; opacity: 0.9; }
+    .edit-btn {
+      background: #ffd700;
+      color: #000;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 20px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .edit-btn:hover { background: #ffcc00; transform: scale(1.05); }
+
+    /* ตารางคะแนน */
+    .score-section {
+      padding: 30px;
+      text-align: center;
+    }
+    .score-section h4 {
+      font-weight: 600;
+      color: #8b7e66;
+      margin-bottom: 25px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fffdf5;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    th { background-color: #8b7e66; color: white; }
+    tr:hover { background-color: #f7f2e7; }
+
+    /* Modal */
+    .modal-content { border-radius: 15px; }
+    /* ตารางประวัติเลื่อนถ้ามีข้อมูลเยอะ */
+    .score-section {
+    padding: 30px;
+    text-align: center;
+    max-height: 400px;   /* กำหนดความสูงสูงสุด */
+    overflow-y: auto;    /* ถ้าเกินจะเลื่อนแทน */
+    }
+
+    .score-section table {
+    margin-bottom: 0; /* ไม่ให้มีช่องว่างเกิน */
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+  <a class="navbar-brand d-flex align-items-center" href="index.html">
+    <img src="logo.png" height="32" alt="Logo">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarMenu">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"><a class="nav-link" href="index.html">หน้าแรก</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.html">ประวัติโดยย่อ</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.html">กษัตริย์อยุธยา</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.html">สถานที่ตั้ง</a></li>
+      <li class="nav-item"><a class="nav-link" href="learning.html">บทเรียนออนไลน์</a></li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="ค้นหา..." aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit">ไป</button>
+        </div>
+      </div>
+    </form>
+    <div class="dropdown ml-3">
+      <a class="dropdown-toggle d-flex align-items-center text-white" href="#" id="userDropdown" data-toggle="dropdown">
+        <img id="navProfilePic" src="default.png" class="rounded-circle" width="32" height="32">
+        <span id="navUsername" class="ml-2"></span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="profile.html" onclick="openProfile()">แก้ไขโปรไฟล์</a>
+        <a class="dropdown-item text-danger" href="#" onclick="logout()">ออกจากระบบ</a>
+      </div>
+    </div>
+  </div>
+</nav>
+  <!-- Profile Card -->
+  <div class="profile-card mt-4">
+    <div class="profile-header">
+      <img id="profilePic" src="Guest.png" alt="Profile Picture">
+      <h2 id="displayName">ชื่อผู้ใช้</h2>
+      <p id="displayDesc">คำอธิบายตัวเอง</p>
+      <button class="edit-btn" onclick="openEditModal()">แก้ไขโปรไฟล์ ✏️</button>
+    </div>
+
+    <div class="score-section">
+      <h4>📚 ประวัติการทำแบบทดสอบ</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>บทเรียน</th>
+            <th>คะแนน</th>
+            <th>วันที่ทำ</th>
+          </tr>
+        </thead>
+        <tbody id="scoreTable">
+          <tr><td colspan="3" class="text-muted">ยังไม่มีประวัติการทำแบบทดสอบ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Modal แก้ไขโปรไฟล์ -->
+<div class="modal fade" id="editProfileModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <div class="modal-header justify-content-center">
+        <h4>✏️ แก้ไขโปรไฟล์</h4>
+      </div>
+      <div class="modal-body">
+        <form id="editForm">
+          <div class="form-group">
+            <label for="editName">ชื่อผู้ใช้ใหม่</label>
+            <input type="text" id="editName" class="form-control" placeholder="ระบุชื่อของคุณ...">
+          </div>
+          <div class="form-group">
+            <label for="editDesc">คำอธิบายตัวเอง</label>
+            <textarea id="editDesc" rows="3" class="form-control" placeholder="เล่าเกี่ยวกับคุณ..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="editPic">เลือกรูปโปรไฟล์ใหม่</label>
+            <input type="file" id="editPic" class="form-control-file">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-save" onclick="saveProfile()">บันทึก</button>
+        <button type="button" class="btn btn-cancel" data-dismiss="modal">ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // โหลดข้อมูลจาก LocalStorage
+    document.addEventListener("DOMContentLoaded", () => {
+      const name = localStorage.getItem("username") || "ผู้เยี่ยมชม";
+      const desc = localStorage.getItem("description") || "ยังไม่ได้เพิ่มคำอธิบาย";
+      const pic = localStorage.getItem("profilePic") || "Guest.png";
+      document.getElementById("displayName").innerText = name;
+      document.getElementById("displayDesc").innerText = desc;
+      document.getElementById("profilePic").src = pic;
+
+      loadScores();
+    });
+
+    function openEditModal() {
+      document.getElementById("editName").value = localStorage.getItem("username") || "";
+      document.getElementById("editDesc").value = localStorage.getItem("description") || "";
+      $('#editProfileModal').modal('show');
+    }
+
+    function saveProfile() {
+      const newName = document.getElementById("editName").value.trim();
+      const newDesc = document.getElementById("editDesc").value.trim();
+      const newPic = document.getElementById("editPic").files[0];
+
+      if (newName) localStorage.setItem("username", newName);
+      if (newDesc) localStorage.setItem("description", newDesc);
+
+      if (newPic) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          localStorage.setItem("profilePic", e.target.result);
+          location.reload();
+        };
+        reader.readAsDataURL(newPic);
+      } else {
+        location.reload();
+      }
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+
+    // โหลดคะแนนแบบทดสอบ
+    function loadScores() {
+      const scores = JSON.parse(localStorage.getItem("quizScores") || "[]");
+      const table = document.getElementById("scoreTable");
+      table.innerHTML = "";
+
+      if (scores.length === 0) {
+        table.innerHTML = '<tr><td colspan="3" class="text-muted">ยังไม่มีประวัติการทำแบบทดสอบ</td></tr>';
+        return;
+      }
+
+      scores.forEach(s => {
+        const row = `<tr>
+          <td>${s.lesson}</td>
+          <td><strong>${s.score}</strong></td>
+          <td>${s.date}</td>
+        </tr>`;
+        table.innerHTML += row;
+      });
+    }
+  </script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const username = localStorage.getItem("username");
+  const profilePic = localStorage.getItem("profilePic");
+  const navUsername = document.getElementById("navUsername");
+  const navProfilePic = document.getElementById("navProfilePic");
+  const userDropdown = document.getElementById("userDropdown");
+
+  if (username) {
+    navUsername.innerText = username;
+    navProfilePic.src = profilePic || "Guest.png";
+    userDropdown.setAttribute("data-toggle", "dropdown");
+  } else {
+    navUsername.innerText = "ผู้เยี่ยมชม";
+    navProfilePic.src = "Guest.png";
+    userDropdown.removeAttribute("data-toggle");
+    userDropdown.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "login.html";
+    });
+  }
+});
+
+function logout() {
+  localStorage.clear();
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

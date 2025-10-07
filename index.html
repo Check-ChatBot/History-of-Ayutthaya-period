@@ -269,15 +269,6 @@ function logout() {
   localStorage.removeItem("profilePic");
   location.reload();
 }
-
-function openProfile() {
-  document.getElementById("profileModal").style.display = "block";
-}
-
-function closeProfile() {
-  document.getElementById("profileModal").style.display = "none";
-}
-
 function saveProfile() {
   const newName = document.getElementById("editUsername").value.trim();
   const newPic = document.getElementById("editPic").files[0];
@@ -317,8 +308,6 @@ function saveProfile() {
 </script>
 </head>
 <body>
-
-<!-- Navbar -->
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
   <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -349,7 +338,7 @@ function saveProfile() {
         <span id="navUsername" class="ml-2"></span>
       </a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#" onclick="openProfile()">แก้ไขโปรไฟล์</a>
+        <a class="dropdown-item" href="profile.html" onclick="openProfile()">แก้ไขโปรไฟล์</a>
         <a class="dropdown-item text-danger" href="#" onclick="logout()">ออกจากระบบ</a>
       </div>
     </div>
@@ -616,36 +605,6 @@ object-fit: cover; /* ครอบเต็มโดยไม่บิดสั�
     lightbox.style.display = 'none';
   });
 </script>
-<!-- ✅ Modal แก้ไขโปรไฟล์ -->
-<div id="profileModal" class="modal" style="display:none;">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-4" style="
-      border-radius: 15px;
-      background: linear-gradient(145deg, #fffbea, #f5e6a3);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-      border: 2px solid #d4a017;
-      animation: fadeInProfile 0.4s ease;">
-      <h4 class="text-center mb-3" style="color:#5b3e00; font-weight:700;">
-        ✏️ แก้ไขโปรไฟล์
-      </h4>
-
-      <div class="form-group">
-        <label for="editUsername" style="font-weight:600;">ชื่อผู้ใช้ใหม่:</label>
-        <input type="text" id="editUsername" class="form-control" placeholder="ระบุชื่อใหม่ของคุณ...">
-      </div>
-
-      <div class="form-group">
-        <label for="editPic" style="font-weight:600;">เลือกรูปโปรไฟล์ใหม่:</label>
-        <input type="file" id="editPic" class="form-control-file" accept="image/*">
-      </div>
-
-      <div class="text-center">
-        <button class="btn btn-success px-4" onclick="saveProfile()">บันทึก</button>
-        <button class="btn btn-secondary px-4" onclick="closeProfile()">ยกเลิก</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <style>
 @keyframes fadeInProfile {
@@ -654,33 +613,6 @@ object-fit: cover; /* ครอบเต็มโดยไม่บิดสั�
 }
 </style>
 
-<script>
-function openProfile() {
-  document.getElementById("profileModal").style.display = "block";
-}
-
-function closeProfile() {
-  document.getElementById("profileModal").style.display = "none";
-}
-
-function saveProfile() {
-  const newName = document.getElementById("editUsername").value.trim();
-  const newPic = document.getElementById("editPic").files[0];
-
-  if (newName) localStorage.setItem("username", newName);
-
-  if (newPic) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      localStorage.setItem("profilePic", e.target.result);
-      location.reload(); // โหลดใหม่เพื่ออัปเดตข้อมูล
-    }
-    reader.readAsDataURL(newPic);
-  } else {
-    location.reload();
-  }
-}
-</script>
 <!-- ✅ โหลด Script เพียงชุดเดียว -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
