@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History of Ayutthaya period</title>
   <link rel="icon" type="image/png" href="logo.png">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     body {
       background: url("ayutthaya (2).jpg") no-repeat center center fixed;
       background-size: cover;
       font-family: 'Prompt', sans-serif;
       color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .reset-container {
@@ -21,77 +25,73 @@
       border-radius: 15px;
       width: 400px;
       max-width: 90%;
-      margin: 8% auto;
       padding: 40px;
       text-align: center;
       backdrop-filter: blur(6px);
+      animation: fadeIn 0.6s ease-out;
     }
 
-    .reset-container h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
+    h2 {
+      font-size: 26px;
       color: #e8c742;
+      margin-bottom: 10px;
     }
 
-    .reset-container p {
-      font-size: 15px;
+    p {
       color: #ddd;
+      font-size: 15px;
       margin-bottom: 25px;
     }
 
-        .input-box {
-    position: relative;
-    margin-bottom: 25px;
+    .input-box {
+      position: relative;
+      margin-bottom: 25px;
     }
 
     .input-box input {
-    width: 100%;
-    height: 45px;
-    background: transparent;
-    border: 2px solid #e8c742;
-    border-radius: 8px;
-    outline: none;
-    color: #fff;
-    font-size: 16px;
-    padding: 10px 12px;
-    transition: 0.3s;
+      width: 100%;
+      height: 45px;
+      background: transparent;
+      border: 2px solid #e8c742;
+      border-radius: 8px;
+      color: #fff;
+      padding: 10px 12px;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s;
     }
 
     .input-box label {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
-    color: #aaa;
-    font-size: 14px;
-    pointer-events: none;
-    transition: 0.3s;
-    background: rgba(0,0,0,0.75);
-    padding: 0 5px;
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 14px;
+      pointer-events: none;
+      transition: 0.3s;
+      background: rgba(0,0,0,0.75);
+      padding: 0 5px;
     }
 
-    /* เมื่อ focus หรือกรอกแล้ว label จะยกขึ้น */
     .input-box input:focus + label,
     .input-box input:valid + label {
-    top: -8px;
-    left: 10px;
-    font-size: 12px;
-    color: #e8c742;
+      top: -8px;
+      left: 10px;
+      font-size: 12px;
+      color: #e8c742;
     }
 
     .btn-reset {
       width: 100%;
       height: 45px;
       border: 2px solid #e8c742;
+      border-radius: 25px;
       background: transparent;
       color: #fff;
-      font-size: 16px;
       font-weight: 600;
-      border-radius: 25px;
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: 0.4s;
+      transition: all 0.3s ease;
     }
 
     .btn-reset:hover {
@@ -100,7 +100,7 @@
     }
 
     .back-link {
-      margin-top: 15px;
+      margin-top: 20px;
       font-size: 14px;
     }
 
@@ -113,53 +113,133 @@
     .back-link a:hover {
       text-decoration: underline;
     }
+
+    /* popup */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      background: rgba(0, 0, 0, 0.9);
+      border: 3px solid #e8c742;
+      border-radius: 20px;
+      padding: 30px 40px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(232,199,66,0.7);
+      color: #fff;
+      opacity: 0;
+      z-index: 9999;
+      transition: all 0.4s ease;
+    }
+
+    .popup.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .popup h3 {
+      color: #e8c742;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .popup p {
+      font-size: 15px;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .popup button {
+      background: linear-gradient(45deg, #e8c742, #f3da72);
+      color: #000;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .popup button:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
   <div class="reset-container">
     <h2>🔐 ตั้งรหัสผ่านใหม่</h2>
     <p>โปรดตั้งรหัสผ่านใหม่ของคุณเพื่อเข้าสู่ระบบอีกครั้ง</p>
-    
+
     <form id="resetForm">
-        <div class="input-box">
-           <input type="password" id="newPassword" required>
-           <label for="newPassword">รหัสผ่านใหม่</label>
-        </div>
+      <div class="input-box">
+        <input type="password" id="newPassword" required>
+        <label for="newPassword">รหัสผ่านใหม่</label>
+      </div>
 
-        <div class="input-box">
-            <input type="password" id="confirmPassword" required>
-            <label for="confirmPassword">ยืนยันรหัสผ่านใหม่</label>
-        </div>
+      <div class="input-box">
+        <input type="password" id="confirmPassword" required>
+        <label for="confirmPassword">ยืนยันรหัสผ่านใหม่</label>
+      </div>
 
-        <button type="submit" class="btn-reset">บันทึกรหัสผ่านใหม่</button>
-        </form>
-
+      <button type="submit" class="btn-reset">บันทึกรหัสผ่านใหม่</button>
+    </form>
 
     <div class="back-link">
       <a href="login.html">⬅ กลับไปหน้าเข้าสู่ระบบ</a>
     </div>
   </div>
 
+  <!-- popup -->
+  <div id="popup" class="popup">
+    <h3 id="popupTitle"></h3>
+    <p id="popupMsg"></p>
+    <button onclick="closePopup()">ตกลง</button>
+  </div>
+
   <script>
+    const popup = document.getElementById("popup");
+    const title = document.getElementById("popupTitle");
+    const msg = document.getElementById("popupMsg");
+
+    function showPopup(titleText, msgText, redirect = null) {
+      title.innerText = titleText;
+      msg.innerHTML = msgText;
+      popup.classList.add("show");
+      if (redirect) {
+        popup.querySelector("button").onclick = () => {
+          popup.classList.remove("show");
+          setTimeout(() => window.location.href = redirect, 300);
+        };
+      }
+    }
+
+    function closePopup() {
+      popup.classList.remove("show");
+    }
+
     document.getElementById("resetForm").addEventListener("submit", function(e){
       e.preventDefault();
       const newPass = document.getElementById("newPassword").value.trim();
       const confirmPass = document.getElementById("confirmPassword").value.trim();
 
       if(newPass === "" || confirmPass === ""){
-        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+        showPopup("⚠️ ข้อมูลไม่ครบ", "กรุณากรอกข้อมูลให้ครบถ้วน");
         return;
       }
 
       if(newPass !== confirmPass){
-        alert("รหัสผ่านไม่ตรงกัน โปรดลองอีกครั้ง");
+        showPopup("❌ รหัสผ่านไม่ตรงกัน", "กรุณาตรวจสอบและลองใหม่อีกครั้ง");
         return;
       }
 
-      // ✅ จำลองการบันทึก (สามารถเชื่อม backend จริงได้ภายหลัง)
+      // ✅ บันทึกจำลอง
       localStorage.setItem("userPassword", newPass);
-      alert("บันทึกรหัสผ่านใหม่เรียบร้อย! ✅");
-      window.location.href = "login.html";
+      showPopup("✅ สำเร็จ!", "บันทึกรหัสผ่านใหม่เรียบร้อยแล้ว!", "login.html");
     });
   </script>
 </body>
