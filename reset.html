@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History of Ayutthaya period</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: url("ayutthaya (2).jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Prompt', sans-serif;
+      color: #fff;
+    }
+
+    .reset-container {
+      background: rgba(0, 0, 0, 0.75);
+      border: 2px solid #e8c742;
+      box-shadow: 0 0 25px #e8c742;
+      border-radius: 15px;
+      width: 400px;
+      max-width: 90%;
+      margin: 8% auto;
+      padding: 40px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+    }
+
+    .reset-container h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #e8c742;
+    }
+
+    .reset-container p {
+      font-size: 15px;
+      color: #ddd;
+      margin-bottom: 25px;
+    }
+
+        .input-box {
+    position: relative;
+    margin-bottom: 25px;
+    }
+
+    .input-box input {
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: 2px solid #e8c742;
+    border-radius: 8px;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 12px;
+    transition: 0.3s;
+    }
+
+    .input-box label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.3s;
+    background: rgba(0,0,0,0.75);
+    padding: 0 5px;
+    }
+
+    /* เมื่อ focus หรือกรอกแล้ว label จะยกขึ้น */
+    .input-box input:focus + label,
+    .input-box input:valid + label {
+    top: -8px;
+    left: 10px;
+    font-size: 12px;
+    color: #e8c742;
+    }
+
+    .btn-reset {
+      width: 100%;
+      height: 45px;
+      border: 2px solid #e8c742;
+      background: transparent;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 25px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: 0.4s;
+    }
+
+    .btn-reset:hover {
+      background: linear-gradient(45deg, #25252b, #e8c742);
+      transform: translateY(-2px);
+    }
+
+    .back-link {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .back-link a {
+      color: #e8c742;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="reset-container">
+    <h2>🔐 ตั้งรหัสผ่านใหม่</h2>
+    <p>โปรดตั้งรหัสผ่านใหม่ของคุณเพื่อเข้าสู่ระบบอีกครั้ง</p>
+    
+    <form id="resetForm">
+        <div class="input-box">
+           <input type="password" id="newPassword" required>
+           <label for="newPassword">รหัสผ่านใหม่</label>
+        </div>
+
+        <div class="input-box">
+            <input type="password" id="confirmPassword" required>
+            <label for="confirmPassword">ยืนยันรหัสผ่านใหม่</label>
+        </div>
+
+        <button type="submit" class="btn-reset">บันทึกรหัสผ่านใหม่</button>
+        </form>
+
+
+    <div class="back-link">
+      <a href="login.html">⬅ กลับไปหน้าเข้าสู่ระบบ</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("resetForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const newPass = document.getElementById("newPassword").value.trim();
+      const confirmPass = document.getElementById("confirmPassword").value.trim();
+
+      if(newPass === "" || confirmPass === ""){
+        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+        return;
+      }
+
+      if(newPass !== confirmPass){
+        alert("รหัสผ่านไม่ตรงกัน โปรดลองอีกครั้ง");
+        return;
+      }
+
+      // ✅ จำลองการบันทึก (สามารถเชื่อม backend จริงได้ภายหลัง)
+      localStorage.setItem("userPassword", newPass);
+      alert("บันทึกรหัสผ่านใหม่เรียบร้อย! ✅");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

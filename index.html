@@ -100,76 +100,57 @@
       font-size: 1.1rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-
-    /* ===== Section: Location Box ===== */
 .location-section {
-  background-color: #f6e49b; /* สีพื้นหลังโทนทอง */
+  background-color: #f6e49b;
   border-radius: 20px;
-  padding: 30px;
-  margin: 60px auto;
-  max-width: 1100px;
+  padding: 30px 40px;
+  margin-top: 40px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  border: 3px solid #d4a017; /* เส้นขอบกรอบ */
+  border: 3px solid #d4a017;
 }
 
-.location-section h2 {
-  text-align: center;
-  color: #5b3e00;
-  font-weight: bold;
-  margin-bottom: 25px;
-}
-
-/* กล่องข้อความด้านซ้าย */
 .info-box {
-  background-color: #fff8dc; /* สีครีมอ่อน */
+  background-color: #fff8dc;
   border-radius: 15px;
-  padding: 25px 30px;
+  padding: 20px 25px;
   line-height: 1.8;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #333;
-  border: 2px solid #d1a63b; /* เส้นขอบทอง */
+  border: 2px solid #d1a63b;
   box-shadow: inset 0 2px 6px rgba(0,0,0,0.08);
 }
 
-/* กล่องแผนที่ด้านขวา */
-.map-box img {
-  width: 100%;
-  border-radius: 15px;
-  border: 2px solid #d1a63b;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+.info-box:not(:last-child) {
+  margin-bottom: 20px;
 }
 
-/* ข้อความที่อยู่ */
-.footer-text {
-  text-align: center;
-  font-weight: 500;
-  margin-top: 20px;
-  color: #4b3e2b;
-}
-
-/* ปรับตำแหน่งและขนาดรูปภาพในส่วนแผนที่ */
 .map-box {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* แสดง 2 รูปต่อแถว */
-  gap: 15px; /* ระยะห่างระหว่างรูป */
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
 }
 
 .map-box img {
   width: 100%;
-  height: 180px; /* ความสูงเท่ากัน */
-  object-fit: cover; /* ครอบเต็มกรอบโดยไม่บิด */
-  border-radius: 10px; /* มุมโค้ง */
-  border: 2px solid #d1a63b; /* เส้นขอบทอง */
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #d1a63b;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: zoom-in;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* เอฟเฟกต์เวลาเอาเมาส์ไปวาง */
 .map-box img:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
+.footer-text {
+  text-align: center;
+  color: #4b3e2b;
+  font-weight: 600;
+}
 /* ✅ กล่องภาพแสดงเต็มจอ (Lightbox) */
 .lightbox {
   display: none; /* ซ่อนเริ่มต้น */
@@ -226,6 +207,53 @@ body {
 .social-icon:hover {
   color: #ffc107;
   transform: scale(1.2);
+}
+
+/* ✅ ปรับโทน Social Media Footer ให้เข้ากับธีมอยุธยา */
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.social-link i {
+  font-size: 1.3rem;
+  color: #ffc107; /* สีทอง */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover {
+  background: rgba(255, 215, 0, 0.15);
+  color: #FFD700;
+  transform: translateX(4px);
+}
+
+.social-link:hover i {
+  color: #FFD700;
+  transform: scale(1.2);
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 12px;
+}
+
+.footer-links a {
+  color: #ddd;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffc107;
+  text-shadow: 0 0 5px #ffc107;
 }
 
   </style>
@@ -323,6 +351,7 @@ function saveProfile() {
       <li class="nav-item"><a class="nav-link" href="#kings">กษัตริย์อยุธยา</a></li>
       <li class="nav-item"><a class="nav-link" href="#location">สถานที่ตั้ง</a></li>
       <li class="nav-item"><a class="nav-link" href="learning.html">บทเรียนออนไลน์</a></li>
+      <li class="nav-item"><a class="nav-link" href="#contact">ติดตามเรา</a></li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <div class="input-group">
@@ -545,42 +574,54 @@ object-fit: cover; /* ครอบเต็มโดยไม่บิดสั�
 <section class="text-center my-5">
   <img src="Banner1.jpg" alt="Banner" class="img-fluid" style="width:100%; height:100%; object-fit: cover;">
 </section>
-<section id="location" class="container my-5"></section>
-<h2 class="text-center mb-4">สถานที่ตั้ง</h2>
-<section id="location" class="location-section">
-  <h2>วัดพระศรีสรรเพชญ์ จังหวัดพระนครศรีอยุธยา</h2>
+<!-- Section: Location -->
+<section id="location" class="container my-5">
+  <h2 class="text-center mb-4">สถานที่ตั้ง</h2>
 
-    <div class="row align-items-center">
+  <div class="location-section">
+    <h2 class="mb-4 text-center">วัดสำคัญของจังหวัดพระนครศรีอยุธยา</h2>
+
+    <div class="row align-items-start">
       <!-- กล่องข้อความ -->
       <div class="col-md-7">
-        <div class="info-box">
-          วัดพระศรีสรรเพชญ์เป็นอดีตวัดหลวงประจำพระราชวังโบราณ 
-          อยุธยา ตั้งอยู่ที่ตำบลประตูชัย อำเภอพระนครศรีอยุธยา 
-          จังหวัดพระนครศรีอยุธยา ทางทิศเหนือของวิหารพระมงคลบพิตร 
-          ในเขตอุทยานประวัติศาสตร์พระนครศรีอยุธยา 
-          สร้างขึ้นราวปี พ.ศ. 2035 โดยสมเด็จพระรามาธิบดีที่ 2
+        <div class="info-box mb-3">
+          <h5 class="text-warning font-weight-bold">🏯 วัดพระศรีสรรเพชญ์</h5>
+          <p>
+            วัดพระศรีสรรเพชญ์เป็นอดีตวัดหลวงประจำพระราชวังโบราณอยุธยา<br>
+            ตั้งอยู่ที่ ตำบลประตูชัย อำเภอพระนครศรีอยุธยา จังหวัดพระนครศรีอยุธยา
+            ทางทิศเหนือของวิหารพระมงคลบพิตร ในเขตอุทยานประวัติศาสตร์พระนครศรีอยุธยา<br>
+            สร้างขึ้นราวปี พ.ศ. 2035 โดยสมเด็จพระรามาธิบดีที่ 2
+          </p>
         </div>
+
         <div class="info-box">
-          วัดพุทไธศวรรย์ ปัจจุบันตั้งอยู่ริมแม่น้ำเจ้าพระยาทางด้านทิศตะวันตก ที่ตำบลสำเภาล่ม 
-          อำเภอพระนครศรีอยุธยา จังหวัดพระนครศรีอยุธยา พิกัด : 14.339782, 100.557519 ทิศเหนือ 
-          ติดกับแม่น้ำเจ้าพระยา ทิศใต้ ติดกับที่ของวัดตำหนัก (ร้าง) ทิศตะวันออก ติดกับโรงเรียนพุทไธศวรรย์ และทิศตะวันตก ติดกับบ้านเรือนราษฎร
+          <h5 class="text-warning font-weight-bold">🏯 วัดพุทไธศวรรย์</h5>
+          <p>
+            วัดพุทไธศวรรย์ตั้งอยู่ริมแม่น้ำเจ้าพระยาทางด้านทิศตะวันตก<br>
+            ที่ตำบลสำเภาล่ม อำเภอพระนครศรีอยุธยา จังหวัดพระนครศรีอยุธยา<br>
+            พิกัด: 14.339782, 100.557519<br>
+            ทิศเหนือติดกับแม่น้ำเจ้าพระยา ทิศใต้ติดกับวัดตำหนัก (ร้าง)<br>
+            ทิศตะวันออกติดโรงเรียนพุทไธศวรรย์ และทิศตะวันตกติดบ้านเรือนราษฎร
+          </p>
         </div>
       </div>
 
-      <!-- แผนที่ -->
-      <div class="col-md-5 map-box">
-        <img src="M1.jpg" alt="แผนที่วัดพระศรีสรรเพชญ์" href="#">
-        <img src="M2.jpg" alt="แผนที่วัดพระศรีสรรเพชญ์" href="#">
-        <img src="M5.jpg" alt="แผนที่วัดพระศรีสรรเพชญ์" href="#">
-        <img src="M6.jpg" alt="แผนที่วัดพระศรีสรรเพชญ์" href="#">
+      <!-- กล่องภาพแผนที่ -->
+      <div class="col-md-5">
+        <div class="map-box">
+          <img src="M1.jpg" alt="แผนที่วัดพระศรีสรรเพชญ์">
+          <img src="M2.jpg" alt="แผนที่วัดพุทไธศวรรย์">
+          <img src="M5.jpg" alt="แผนที่เพิ่มเติม">
+          <img src="M6.jpg" alt="แผนที่เพิ่มเติม">
+        </div>
       </div>
     </div>
 
-    <!-- ข้อความที่อยู่ -->
-    <div class="footer-text">
-      ที่ตั้ง: ตำบลประตูชัย อำเภอพระนครศรีอยุธยา จังหวัดพระนครศรีอยุธยา
+    <div class="footer-text mt-4">
+      📍 ที่ตั้ง: จังหวัดพระนครศรีอยุธยา ประเทศไทย
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- ✅ Lightbox Container -->
 <div class="lightbox" id="lightbox">
@@ -654,6 +695,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+<div id="contact"></div>
 <!-- Footer -->
 <footer class="text-center text-lg-start text-white mt-5" style="background: linear-gradient(135deg, #1b2735 0%, #090a0f 100%);">
   <div class="container p-4 pb-0">
@@ -674,43 +716,70 @@ document.addEventListener("DOMContentLoaded", () => {
         <h5 class="text-uppercase mb-4 fw-bold text-warning">
           <i class="fa-solid fa-link me-2"></i>ลิงก์สำคัญ
         </h5>
-        <p><a href="#" class="text-white text-decoration-none footer-link">หน้าแรก</a></p>
-        <p><a href="#" class="text-white text-decoration-none footer-link">ประวัติศาสตร์</a></p>
-        <p><a href="#" class="text-white text-decoration-none footer-link">แบบทดสอบ</a></p>
-        <p><a href="#" class="text-white text-decoration-none footer-link">ติดต่อเรา</a></p>
+        <p><a href="#home" class="text-white text-decoration-none footer-link">หน้าแรก</a></p>
+        <p><a href="#history" class="text-white text-decoration-none footer-link">ประวัติโดยย่อ</a></p>
+        <p><a href="#kings" class="text-white text-decoration-none footer-link">กษัตริย์อยุธยา</a></p>
+        <p><a href="#location" class="text-white text-decoration-none footer-link">สถานที่ตั้ง</a></p>
+        <p><a href="learning.html" class="text-white text-decoration-none footer-link">บทเรียนออนไลน์</a></p>
+        <p><a href="#contact" class="text-white text-decoration-none footer-link">ติดตามเรา</a></p>
       </div>
 
-      <!-- โซเชียลมีเดีย -->
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 fw-bold text-warning">
-          <i class="fa-solid fa-share-nodes me-2"></i>ติดตามเรา
-        </h5>
-        <p>
-          <a href="#" class="me-3 text-white social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="me-3 text-white social-icon"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="me-3 text-white social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" class="me-3 text-white social-icon"><i class="fa-brands fa-youtube"></i></a>
-        </p>
-        <p><i class="fa-solid fa-envelope me-2"></i>info@ayutthayahistory.com</p>
-        <p><i class="fa-solid fa-phone me-2"></i>+66 89 999 9999</p>
+          <!-- โซเชียลมีเดีย -->
+    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+      <h5 class="text-uppercase mb-4 fw-bold text-warning">
+        <i class="fa-solid fa-share-nodes me-2"></i>ติดตามเรา
+      </h5>
+
+      <div class="d-flex flex-column align-items-start gap-2">
+        <a href="#" class="social-link mb-2">
+          <i class="fa-brands fa-facebook-f"></i>
+          <span>อยุธยา - Ayutthaya Station</span>
+        </a>
+
+        <a href="#" class="social-link mb-2">
+          <i class="fa-brands fa-instagram"></i>
+          <span>@ayutthaya_station</span>
+        </a>
+
+        <a href="mailto:mong1307@gmail.com" class="social-link mb-2">
+          <i class="fa-solid fa-envelope"></i>
+          <span>mong1307@gmail.com</span>
+        </a>
+
+        <a href="tel:+66979788952" class="social-link">
+          <i class="fa-solid fa-phone"></i>
+          <span>+66 97 978 8952</span>
+        </a>
       </div>
     </div>
 
     <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
 
     <!-- Copyright -->
-    <div class="row d-flex align-items-center">
-      <div class="col-md-8 col-lg-8 text-md-start text-center mb-3 mb-md-0">
-        <p class="mb-0">
-          © 2025 <span class="fw-bold text-warning">Ayutthaya History</span> | All Rights Reserved
-        </p>
-      </div>
-      <div class="col-md-4 col-lg-4 text-md-end text-center">
-        <a href="#" class="text-white text-decoration-none small">นโยบายความเป็นส่วนตัว</a> |
-        <a href="#" class="text-white text-decoration-none small">เงื่อนไขการใช้งาน</a>
+    <div class="footer-bottom text-center">
+      <p class="mb-2 text-white small">
+        © 2025 <span class="fw-bold text-warning">History of Ayutthaya period</span> | All Rights Reserved
+      </p>
+      <div class="footer-links">
+        <a href="#" class="text-white text-decoration-none small mx-2">นโยบายความเป็นส่วนตัว</a> |
+        <a href="#" class="text-white text-decoration-none small mx-2">เงื่อนไขการใช้งาน</a>
       </div>
     </div>
   </div>
 </footer>
+<script>
+$(document).ready(function(){
+  // ✅ ให้ทำงานกับทุกลิงก์ที่มี href เริ่มต้นด้วย #
+  $("a[href^='#']").on('click', function(e) {
+    const target = $(this.getAttribute('href'));
+    if (target.length) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: target.offset().top - 70 // ปรับระยะให้พอดีกับ navbar
+      }, 800);
+    }
+  });
+});
+</script>
 </body>
 </html>

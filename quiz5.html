@@ -140,8 +140,8 @@ function showQuestion(index) {
   clearInterval(timer);
   startTimer();
 
-  document.getElementById("currentQ").innerText = index+1;
-  document.getElementById("progressBar").style.width = ((index)/questions.length*100)+"%";
+  document.getElementById("currentQ").innerText = index + 1;
+  document.getElementById("progressBar").style.width = ((index) / questions.length * 100) + "%";
 
   const q = questions[index];
   let html = `<p class="question">${q.question}</p>`;
@@ -155,7 +155,7 @@ function showQuestion(index) {
 function selectOption(el, answer) {
   const q = questions[current];
   const options = document.querySelectorAll(".option");
-  options.forEach(opt => opt.onclick = null); // disable clicks
+  options.forEach(opt => opt.onclick = null);
 
   userAnswers[current] = answer;
 
@@ -182,21 +182,13 @@ function lockOptions() {
 }
 
 document.getElementById("nextBtn").addEventListener("click", () => {
-  if (current < questions.length-1) {
+  if (current < questions.length - 1) {
     current++;
     showQuestion(current);
   } else {
     showResult();
   }
 });
-// บันทึกคะแนนไปยัง LocalStorage
-const scores = JSON.parse(localStorage.getItem("quizScores") || "[]");
-scores.push({
-  lesson: "บทที่ 5 เศรษฐกิจและการค้าสมัยกรุงศรีอยุธยา",
-  score: `${score}/${questions.length}`,
-  date: new Date().toLocaleDateString('th-TH')
-});
-localStorage.setItem("quizScores", JSON.stringify(scores));
 
 function showResult() {
   document.getElementById("quizContainer").style.display = "none";
@@ -204,7 +196,7 @@ function showResult() {
   document.querySelector(".progress").style.display = "none";
   document.querySelector(".timer").style.display = "none";
 
-      const username = localStorage.getItem("username") || "ผู้ใช้ไม่ระบุ";
+  const username = localStorage.getItem("username") || "ผู้ใช้ไม่ระบุ";
 
   let resultHTML = `
     <div class="card shadow-lg p-4">
@@ -224,7 +216,8 @@ function showResult() {
             <th scope="col">คำตอบของคุณ</th>
           </tr>
         </thead>
-        <tbody>`;
+        <tbody>
+  `;
 
   questions.forEach((q, i) => {
     const userAns = userAnswers[i] || "-";
@@ -236,26 +229,39 @@ function showResult() {
         <td>${i + 1}</td>
         <td>${q.question}</td>
         <td>${userAns}</td>
-      </tr>`;
+      </tr>
+    `;
   });
 
-    resultHTML += `
+  resultHTML += `
         </tbody>
       </table>
 
       <div class="text-center mt-4">
-  <button class="btn fancy-btn mr-2" onclick="location.reload()">🔁 ทำแบบทดสอบใหม่</button>
-  <a href="index.html" class="btn fancy-btn mr-2">🏠 กลับเมนูหลัก</a>
-  <a href="learning.html" class="btn fancy-btn">➡️ ไปบทถัดไป</a>
-</div>`;
+        <button class="btn fancy-btn mr-2" onclick="location.reload()">🔁 ทำแบบทดสอบใหม่</button>
+        <a href="index.html" class="btn fancy-btn mr-2">🏠 กลับเมนูหลัก</a>
+        <a href="learning.html" class="btn fancy-btn">➡️ ไปบทถัดไป</a>
+      </div>
+    </div>
+  `;
 
   document.getElementById("resultBox").innerHTML = resultHTML;
   document.getElementById("resultBox").style.display = "block";
+
+  // ✅ บันทึกคะแนนเฉพาะตอนจบ
+  const scores = JSON.parse(localStorage.getItem("quizScores") || "[]");
+  scores.push({
+    lesson: "บทที่ 5 เศรษฐกิจและการค้าสมัยกรุงศรีอยุธยา",
+    score: `${score}/${questions.length}`,
+    date: new Date().toLocaleDateString('th-TH')
+  });
+  localStorage.setItem("quizScores", JSON.stringify(scores));
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   showQuestion(current);
 });
 </script>
+
 </body>
 </html>

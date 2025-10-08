@@ -188,14 +188,6 @@ document.getElementById("nextBtn").addEventListener("click", () => {
     showResult();
   }
 });
-// บันทึกคะแนนไปยัง LocalStorage
-const scores = JSON.parse(localStorage.getItem("quizScores") || "[]");
-scores.push({
-  lesson: "บทที่ 2 การปกครองสมัยกรุงศรีอยุธยา",
-  score: `${score}/${questions.length}`,
-  date: new Date().toLocaleDateString('th-TH')
-});
-localStorage.setItem("quizScores", JSON.stringify(scores));
 
 function showResult() {
   document.getElementById("quizContainer").style.display = "none";
@@ -253,11 +245,21 @@ function showResult() {
 
   document.getElementById("resultBox").innerHTML = resultHTML;
   document.getElementById("resultBox").style.display = "block";
+
+  const scores = JSON.parse(localStorage.getItem("quizScores") || "[]");
+  scores.push({
+    lesson: "บทที่ 1 การปกครองสมัยกรุงศรีอยุธยา",
+    score: `${score}/${questions.length}`,
+    date: new Date().toLocaleDateString('th-TH')
+  });
+  localStorage.setItem("quizScores", JSON.stringify(scores));
+
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   showQuestion(current);
 });
+
 </script>
 </body>
 </html>
