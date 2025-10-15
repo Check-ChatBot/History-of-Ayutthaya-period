@@ -186,11 +186,10 @@ body {
   font-family: 'Prompt', sans-serif;
 }
 
-/* ✅ จัดคอลัมน์รายพระนามให้อยู่ชิดซ้าย */
-.table td:nth-child(2), 
-.table th:nth-child(2) {
-  text-align: left !important;
-  padding-left: 15px;
+/* ✅ จัดข้อมูล "รายพระนาม" และ "ปีครองราชย์" ให้ชิดซ้าย แต่หัวข้ออยู่ตรงกลาง */
+.table th:nth-child(2),
+.table th:nth-child(3) {
+  text-align: center !important; /* หัวข้ออยู่ตรงกลาง */
 }
 
 .footer-link:hover {
@@ -254,6 +253,12 @@ body {
 .footer-links a:hover {
   color: #ffc107;
   text-shadow: 0 0 5px #ffc107;
+}
+
+.table td:nth-child(2),
+.table td:nth-child(3) {
+  text-align: left !important; /* ข้อมูลอยู่ชิดซ้าย */
+  padding-left: 15px;
 }
 
   </style>
@@ -511,7 +516,6 @@ object-fit: cover; /* ครอบเต็มโดยไม่บิดสั�
 </section>
 
 <!-- Section: Table -->
-<section id="kings">
 <section id="kings" class="container my-5">
   <h2 class="text-center mb-4">รายพระนามกษัตริย์ 33 พระองค์</h2>
   <div class="table-wrapper">
@@ -776,7 +780,7 @@ $(document).ready(function(){
       e.preventDefault();
       $('html, body').animate({
         scrollTop: target.offset().top - 70 // ปรับระยะให้พอดีกับ navbar
-      }, 600);
+      }, 550);
     }
   });
 });
